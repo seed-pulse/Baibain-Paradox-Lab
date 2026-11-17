@@ -40,14 +40,22 @@ Rs = 2GM/c^2, applicable as an important scale in spherically symmetric GR. At n
 Crossing the algebraic ratio Rs/R=1 under an imposed constant rho **does not** calculate when a realistic black hole forms. To determine that requires spacetime-dependent stress-energy, expansion/transport, pressure/temperature, and GR evolution; ordinary hydrostatic Newtonian pressure is invalid by this regime.
 References: NASA GSFC https://imagine.gsfc.nasa.gov/science/objects/black_holes2.html ; OpenStax https://openstax.org/books/astronomy/pages/24-5-black-holes
 
-## 5. Flat spacetime causal-volume contradiction [MODEL D]
-Local propagation from one origin cannot populate events outside its future light cone at t. Bound occupied volume (without overlapping finite-volume copies) by a ball of radius c*t in flat space. If all copies have fixed volume v0 = 0.05/1000 m^3, required ball radius grows as R(n) ~ 2^(n/3), whereas ct grows linearly in n. At n=147 (12h15): R≈86.0 AU vs ct≈88.38 AU. At n=148 (12h20): R≈108.35 AU vs ct≈88.98 AU.
+## 5. Flat spacetime causal-volume contradiction [MODEL D; finite initial radius]
+Local propagation from one origin cannot populate events outside its future light cone at t. Bound occupied volume (without overlapping finite-volume copies) by a ball of radius **r0 + c*t** in flat space, where r0 = (3 m0/(4πρ))^(1/3) is the spherical-equivalent initial object radius. If all copies have fixed volume v0 = 0.05/1000 m^3, required ball radius grows as R(n) ~ 2^(n/3), whereas ct grows linearly in n. At n=147 (12h15): R≈86.0 AU vs (r0+ct)≈88.38 AU. At n=148 (12h20): R≈108.35 AU vs (r0+ct)≈88.98 AU. Default r0 is tiny relative to astronomical distances; crossing cycle stays n=148.
 This shows the *assumptions* are jointly incompatible indefinitely. It does NOT prove a physical explosion or describe an expanding FRW universe. Curved spacetime, strong gravity and nonlocal fictional replication invalidate this simple construction.
 NASA cosmology overview: https://science.nasa.gov/universe/overview/
 
-## 6. Idealized inner horizon time [MODEL E]
-Fixed Schwarzschild mass M, freely falling test particle starting at rest at infinity (specific energy 1): from horizon to r=0 its remaining proper time is 4GM/(3c^3). For M = 100 million solar masses, about 657 s (~10.95 min). Up to two *complete* 300 s intervals can fit **if** its timer is aligned at horizon passage and remains functional.
-Different infall initial conditions yield different proper times. The probe is NOT a simulation of a multiplying extended food object, and signals from inside the horizon do not causally escape to distant observers.
+## 6. Event-horizon to r=0 test-particle proper time [MODEL E]
+Fixed Schwarzschild mass M, freely falling test particle starting at rest at infinity (specific energy 1): from horizon to r=0 its remaining proper time is 4GM/(3c^3). For M = 100 million solar masses, about 657 s (~10.95 min). Two complete 300 s intervals fit **if the cycle timer starts afresh at horizon passage**; up to **three scheduled births** can occur if the clock's phase at crossing is 270 s (births at +30 s, +330 s, +630 s). Phase and survivability are unspecified.
+Different infall initial conditions yield different proper times. The probe is NOT a simulation of a multiplying extended food object. **An inward light signal emitted outside can cross the future event horizon and meet an infaller inside**; only outbound signals from inside cannot reach distant observers. Sol reported an illustrative meeting at ≈206 s of infaller proper time, not independently reproduced here.
 
 ## 7. Unsolved physical closure
 Heat generation requires velocities, material properties and a specified replication process. Creation of rest mass requires accounting for a source or explicit new physics. State transitions after fragmentation, ingestion, phase change, or event-horizon crossing are undefined. Do not claim any single termination mechanism as proved.
+
+
+## 8. Local parent-child placement bound [MODEL G, reported by Sol; unit-tested arithmetic]
+Assume each parent is fixed in position, each birth may place its child center no farther than **one full bun diameter** (2r0) from the parent, all buns remain full nonoverlapping spheres, and the very first center is at the origin. After n generations the outermost surface is contained in a sphere of radius \`(2n+1)r0\`. A best-case volume upper bound for count is \`(2n+1)^3\`, already overly generous because it ignores packing gaps.
+At n=14, 16,384 <= 29³=24,389; at n=15, 32,768 > 31³=29,791. Thus this **specific fixed-parent local-placement model** is inconsistent by 75 minutes, even with empty space outside the reachable shell. This is neither a claim about canonical magic nor a theorem for freely moving parents or long-distance placement.
+
+## 9. Model compatibility warning [MATH/MODEL separation]
+The flat-space constraint uses a Minkowski background with bounded local creation; the compactness indicator uses large self-gravity. It would be physically inconsistent to treat both as simultaneous accurate predictions. Under a substantially evolving mass-energy budget, background spacetime cannot simply remain Minkowski. The fixed Schwarzschild geodesic calculation presumes an unchanging background, and is not valid unchanged while huge new mass is created.

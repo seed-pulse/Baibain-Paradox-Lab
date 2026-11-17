@@ -14,7 +14,7 @@ This is an *accounting invariant*, not proof of physically realized finite resou
 4. Atomically mark one permit **spent** in the authoritative ledger (or physically consume a nonduplicable token).
 5. Only after the above succeed, commit a new object. On ambiguity/failure, create nothing; reconcile before retry.
 
-The code in model.py implements ONLY the scalar, atomic ledger invariant and boolean resource gates. It does **not** implement physical conservation, cryptographic tokens, consensus, or reliable distributed transactions.
+The post-review code in model.py now implements a **single-process, locked, version-checked authority** with one-time request IDs, strict input type checks, and boolean resource gates. It serializes concurrent callers sharing the exact same in-memory ledger. It does **not** implement physical conservation, durable/crash-safe commits, cryptographic tokens, consensus, process-fork safety, or reliable distributed transactions. A real-world birth must be coupled atomically with the authorizing decision; this remains UNSOLVED.
 
 ## Threat model
 - Concurrent replication: two separated children spend the same permit (double-spend) unless enforcement is atomic/noncopyable.
@@ -29,3 +29,11 @@ An all-powerful gadget capable of inventing arbitrary mass, making duplicates at
 
 ## Connection to Voyager research (ANALOGY only)
 Consume authorized state just before mutation, preserve monotonic evidence, and never treat equality of the current world view as evidence that history has not changed (ABA). These are software safety analogies; they do not establish physical replication technology.
+
+
+## Sol High reproduction and minimal fix (review relayed by user)
+**Original failure:** calling the old pure \`try_authorized_birth(PermitState(1), ...)\` twice returned two \`True\` grants, each with a separate \`PermitState(0,1)\`; neither knew of the other. Conservation in a *sequential call chain* did not provide global authorization safety.
+
+**Fix:** \`PermitLedger(1)\` owns the only mutable authoritative state; each request supplies \`expected_version\` and a unique \`request_id\`. Every successful grant atomically decrements the budget, increments the version, and records the ID under a thread lock. Stale versions and any replayed request ID are denied. Rejections do not generate matter. Concurrent calls with the same version can grant at most one.
+
+**Limit:** Do not clone/deserialize/fork the authority into independent birth-granting instances. Do not trust arbitrary physical sensors, or interpret the returned \`True\` as durable atomic creation. The result proves only the in-memory invariant in one process. Security of globally distributed permissions remains an OPEN problem.

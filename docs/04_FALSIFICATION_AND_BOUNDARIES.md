@@ -17,9 +17,17 @@ Purpose: separate a theorem about a declared model from a prediction about the f
 ## Three independent tests
 **T1 — arithmetic:** exact counts (12, 24 cycles), mass and first-cycle threshold regression tests. A failure invalidates reported table values.
 
-**T2 — local safety proof:** replay the toy allocator for 20 birth requests with B=15: exactly 15 grants and 5 denials, and no grants when any environmental check fails. This proves only the simulated, single-atomic-ledger invariant.
+**T2 — local safety proof:** exercise the single shared in-memory ledger for 20 distinct authorized requests with B=15, then stale-version replay, request-ID replay and two concurrent same-version calls. This proves only the locked single-process invariant; a distributed, copied or persisted ledger is outside scope.
 
 **T3 — critical external review:** ask reviewer to construct a fully consistent world in which thermal destruction occurs but a tag survives, and one in which heat never destroys tags. Also challenge gravity, causal bound, source interpretation, and any claimed novelty.
 
 ## Known limitations
 No real-world reproduction; no thermal transport solver; no dynamics; no real EOS; no Einstein-field-equation numerical solution; no cosmic-scale FRW calculation; no magic's internal specification; no actual Sol model invocation by this repository. Independent reviewer must sign off separately before claiming review complete.
+
+
+## Additional post-Sol reviewer counterexamples
+- **Same-state double grant (High):** Pure transition functions are only proposals; they must not be used as production authorizers. A caller may reuse an old snapshot. Addressed by serializing one shared authority and rejecting stale versions; not addressed across isolated authorities.
+- **Initial radius:** A spatially extended initial bun needs \`r0+ct\`, not \`ct\`; numerical crossing remains n=148 for default parameters.
+- **Ingoing horizon communications:** An external signal can enter a future event horizon and reach an interior infaller. “Outside cannot stop inside” was too strong; communication back to infinity remains impossible from within.
+- **Local birth-placement limit:** One-diameter child-center jumps with fixed parents make a much earlier 75-minute volume obstruction.
+- **Nonphysical inputs:** non-integer budgets, string values such as \`"false"\`, and derived nonfinite numbers must be rejected, not silently accepted.

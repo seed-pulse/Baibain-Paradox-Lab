@@ -26,3 +26,8 @@ Both 2025 README versions at https://github.com/seed-pulse/baibainn and https://
 
 ## Canon vs proof boundaries
 Evidence that eaten copies cease being a problem does **not** uniquely identify whether digestion, identity, destruction or a state-change disables replication. Removing the objects to space does **not** demonstrate that they subsequently disappear, survive or fill the universe. No extrapolation is labeled canonical without a cited passage.
+
+## Post-Sol clarifications — 2026-11-18
+- The initial treated object is **not a point**. A flat-spacetime causality upper bound must include its initial spherical equivalent radius \`r0=(3 m0/(4πρ))^(1/3)\`, giving outer extent at most \`r0+ct\` under assumptions D. This does not affect first threshold n=148 with the default values.
+- The manga's **rocket removal at original volume 17 p.11** was reported by the independently solicited Sol review, relayed by the user. The present GPT-6 session **has not personally inspected that page**; it is *reviewer-reported source*, not author-verification.
+- Being made of matter does not automatically mean that the gadget's hypothetical remote power source or information-transfer mechanism obeys the same effective propagation constraints. The flat causal volume bound explicitly assumes locality and an ordinary Minkowski background.
