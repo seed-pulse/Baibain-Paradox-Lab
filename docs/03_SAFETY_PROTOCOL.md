@@ -32,8 +32,18 @@ Consume authorized state just before mutation, preserve monotonic evidence, and 
 
 
 ## Sol High reproduction and minimal fix (review relayed by user)
-**Original failure:** calling the old pure \`try_authorized_birth(PermitState(1), ...)\` twice returned two \`True\` grants, each with a separate \`PermitState(0,1)\`; neither knew of the other. Conservation in a *sequential call chain* did not provide global authorization safety.
+**Original failure:** calling the old pure `try_authorized_birth(PermitState(1), ...)` twice returned two `True` grants, each with a separate `PermitState(0,1)`; neither knew of the other. Conservation in a *sequential call chain* did not provide global authorization safety.
 
-**Fix:** \`PermitLedger(1)\` owns the only mutable authoritative state; each request supplies \`expected_version\` and a unique \`request_id\`. Every successful grant atomically decrements the budget, increments the version, and records the ID under a thread lock. Stale versions and any replayed request ID are denied. Rejections do not generate matter. Concurrent calls with the same version can grant at most one.
+**Fix:** `PermitLedger(1)` owns the only mutable authoritative state; each request supplies `expected_version` and a unique `request_id`. Every successful grant atomically decrements the budget, increments the version, and records the ID under a thread lock. Stale versions and any replayed request ID are denied. Rejections do not generate matter. Concurrent calls with the same version can grant at most one.
 
-**Limit:** Do not clone/deserialize/fork the authority into independent birth-granting instances. Do not trust arbitrary physical sensors, or interpret the returned \`True\` as durable atomic creation. The result proves only the in-memory invariant in one process. Security of globally distributed permissions remains an OPEN problem.
+**Limit:** Do not clone/deserialize/fork the authority into independent birth-granting instances. Do not trust arbitrary physical sensors, or interpret the returned `True` as durable atomic creation. The result proves only the in-memory invariant in one process. Security of globally distributed permissions remains an OPEN problem.
+
+## Flight 001 final-scope risk register — Sol 6.2 user-relayed re-review
+
+**Review target:** `6eea19fad768214fcc6076fe942409fef36444d2`. Verdict **READY** for this *single-process, single-authority research demonstration only*; High 0 / Medium 2 / Low 3. The full external reviewer artifact was not supplied to this repository at publication time, so this is a user-relayed summary and **not** a new code execution or a signed review document.
+
+**Medium M1 (interruption):** If execution is interrupted between writes to the mutable remaining/cumulative counters, a partially updated ledger may lose internal consistency or stop on a later call. A thread lock does not imply crash consistency. Future production directions: atomic immutable-state replacement with a durable transaction log, or another verifiable commit protocol that joins authorization and physical birth. **Not fixed in Flight 001.**
+
+**Medium M2 (denied request IDs):** Even when all budget is exhausted, the in-memory attempted-ID set grows for distinct denied requests (e.g., 4,096 denials leave 4,096 IDs). This is a memory resource-exhaustion exposure. Future production directions: bounded admission, denial-cache policy, durable replay windows, and rejection throttling without weakening the single-spend invariant. **Not fixed in Flight 001.**
+
+**Operational rule:** Never deploy this toy allocator to authorize real duplication, financial transactions, or safety-critical physical actions. Flight completion documents a bounded research result, not a validated production service.

@@ -27,7 +27,16 @@ No real-world reproduction; no thermal transport solver; no dynamics; no real EO
 
 ## Additional post-Sol reviewer counterexamples
 - **Same-state double grant (High):** Pure transition functions are only proposals; they must not be used as production authorizers. A caller may reuse an old snapshot. Addressed by serializing one shared authority and rejecting stale versions; not addressed across isolated authorities.
-- **Initial radius:** A spatially extended initial bun needs \`r0+ct\`, not \`ct\`; numerical crossing remains n=148 for default parameters.
+- **Initial radius:** A spatially extended initial bun needs `r0+ct`, not `ct`; numerical crossing remains n=148 for default parameters.
 - **Ingoing horizon communications:** An external signal can enter a future event horizon and reach an interior infaller. “Outside cannot stop inside” was too strong; communication back to infinity remains impossible from within.
 - **Local birth-placement limit:** One-diameter child-center jumps with fixed parents make a much earlier 75-minute volume obstruction.
-- **Nonphysical inputs:** non-integer budgets, string values such as \`"false"\`, and derived nonfinite numbers must be rejected, not silently accepted.
+- **Nonphysical inputs:** non-integer budgets, string values such as `"false"`, and derived nonfinite numbers must be rejected, not silently accepted.
+
+## Sol 6.2 final re-review follow-up (user-relayed, conditional scope)
+- **READY, High 0 / Medium 2 / Low 3** on the *unchanged* 6eea19f code HEAD, within the declared in-process shared-ledger research model.
+- A reproduction of the original double-authorization now grants only once. Reviewer reported 128 rounds of two groups of 16 concurrent requests: exactly one approval per group, and replays denied. Existing 16 tests passed.
+- Remaining medium: nontransactional interruption of a multi-field update; unbounded attempted-ID accumulation on denials. Explicitly deferred to future persistence / resource-safety work.
+- Remaining low: extreme numerical helper boundaries, overview vs body label consistency, and Newtonian pressure output outside its regime. The published prose now aligns labels; numerical helper is still bounded toy code.
+- **New geometry counterexample:** 12-sphere kissing-number limit around a fixed original means an added *contact-only, no-motion* assumption blocks the 13th child of that original at **65 minutes** (see docs/02 §10). The broader one-diameter-placement bound is **75 minutes**, a different assumption set.
+- Original manga vol.17 p.11 rocket-removal pointer remains reviewer-reported; not personally inspected in this GPT-6 work session.
+- Not an all-environments AGI safety assurance; no spacetime or conservation physics has been validated by running this toy code.
