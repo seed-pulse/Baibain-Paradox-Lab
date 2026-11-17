@@ -5,7 +5,7 @@ A user pasted a summary of GPT-6.2 Sol's independent review on 2026-11-18 (JST).
 
 - **Reviewed fixed code HEAD:** `6eea19fad768214fcc6076fe942409fef36444d2`
 - **Verdict:** READY **only for a single-process, shared-ledger research demonstration**; High 0 / Medium 2 / Low 3
-- **Reproduction reported by reviewer:** former double-grant repaired; 128 rounds of 16+16 simultaneous requests, one grant per group; replay of previously used request ID denied; 16/16 tests pass.
+- **Reproduction reported by reviewer:** former double-grant repaired; 128 groups of 16 simultaneous requests, one grant per group; replay of previously used request ID denied; 16/16 tests pass.
 - **Physics reported:** five milestone crossings independently confirmed, flat `r0+ct` occupancy crossing at 12h20; an outside-launched light ray meeting inside-horizon infaller at approx 206.06 seconds in a fixed Schwarzschild example.
 - **New countermodel reported:** 3D kissing number 12 implies 13th *contact-only offspring of an unmoving original parent* cannot fit, i.e. cycle 13 / 65 minutes, only with this added placement constraint.
 
