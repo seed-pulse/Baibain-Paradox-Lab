@@ -5,6 +5,10 @@
 
 An open, reproducible, playful **thought-experiment laboratory** about the fictional Baibain gadget: exponential duplication, resource constraints, causality, gravity, geometry, and speculative replication authorization. Founded 2026-11-18 (JST).
 
+### Flights 002–003
+
+[Flight 002 research](docs/FLIGHT002_RESEARCH.md) · [Flight 003 independent review, landing decision and execution evidence (日本語)](reviews/ASTRA_6_2_FLIGHT003_REPORT.md)
+
 ### Flight 001 result
 
 **Research milestone complete for a strictly bounded toy model; not a claim that a real replicator is safe.**

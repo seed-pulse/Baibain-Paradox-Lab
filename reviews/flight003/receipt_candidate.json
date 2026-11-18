@@ -1,0 +1,244 @@
+{
+  "concurrency": {
+    "outcomes": {
+      "different_ids": {
+        "granted": 16,
+        "stale_version": 176
+      },
+      "same_id": {
+        "already_granted": 176,
+        "granted": 16
+      }
+    },
+    "rounds_per_mode": 16,
+    "threads_per_round": 12
+  },
+  "geometry": {
+    "direct_child_limit_from_kissing_theorem": 12,
+    "first_depth_volume_witness": [
+      12,
+      4,
+      794,
+      729
+    ],
+    "first_full_population_volume_witness": 15,
+    "full_volume_ticks_14_and_15": [
+      [
+        16384,
+        24389
+      ],
+      [
+        32768,
+        29791
+      ]
+    ],
+    "histories_with_up_to_four_birth_edges_at_12": 794,
+    "moving_line_max_parent_move_in_diameters": {
+      "12": 2047,
+      "13": 4095,
+      "15": 16383
+    }
+  },
+  "input_and_history": {
+    "exhausted_denials": 4096,
+    "malformed_inputs_rejected": 24,
+    "max_length_accepted": 128,
+    "retained_ids_after_each_denial_series": [
+      1,
+      2
+    ],
+    "retained_versions": 64,
+    "temporary_denials": 4096,
+    "total_id_entries_across_retained_versions": 2080
+  },
+  "interruptions": {
+    "after_publication_before_reply": [
+      1,
+      1,
+      1
+    ],
+    "before_publication": [
+      2,
+      0,
+      0
+    ],
+    "retries": [
+      "already_granted",
+      "stale_version",
+      "granted"
+    ]
+  },
+  "physics": {
+    "FLRW_H_per_s": "0.000770163534",
+    "FLRW_comoving_limit_AU": "2.602030",
+    "FLRW_required_over_proper_front_at_148": "5.87114375E-14",
+    "birth_times_by_phase_s": {
+      "0": [
+        300,
+        600
+      ],
+      "270": [
+        30,
+        330,
+        630
+      ]
+    },
+    "boundary": {
+      "131": {
+        "R_AU": "2.133102",
+        "Rs_over_R": "0.633514862",
+        "flat_reach_AU": "78.756760"
+      },
+      "132": {
+        "R_AU": "2.687540",
+        "Rs_over_R": "1.005642158",
+        "flat_reach_AU": "79.357957"
+      },
+      "147": {
+        "R_AU": "86.001265",
+        "Rs_over_R": "1029.777569549",
+        "flat_reach_AU": "88.375906"
+      },
+      "148": {
+        "R_AU": "108.354804",
+        "Rs_over_R": "1634.669997195",
+        "flat_reach_AU": "88.977103"
+      }
+    },
+    "first_ticks": {
+      "10_litres": 8,
+      "compactness": 132,
+      "earth": 87,
+      "flat_volume": 148,
+      "sun": 105
+    },
+    "horizon_to_zero_s": "656.751986",
+    "ingoing_pulse_advanced_delay_s": 100,
+    "initial_radius_m": "0.0228539075",
+    "meeting_proper_s": "206.056761",
+    "meeting_r_over_rs": "0.7780145",
+    "rest_energy_one_bun_J": "4493775893684088.20"
+  },
+  "process_exit_and_duplicate_authorities": {
+    "after": [
+      32,
+      "published, no application reply"
+    ],
+    "before": [
+      31,
+      "candidate not published"
+    ],
+    "fresh": [
+      0,
+      "fresh instance granted"
+    ],
+    "independent_continuations_from_same_logical_prefix": [
+      [
+        1,
+        "granted",
+        [
+          0,
+          2,
+          2
+        ]
+      ],
+      [
+        1,
+        "granted",
+        [
+          0,
+          2,
+          2
+        ]
+      ]
+    ]
+  },
+  "public_views_alias_writable_authoritative_record": {
+    "duplicate": false,
+    "exhausted": false,
+    "granted": false,
+    "resource": false,
+    "snapshot": false,
+    "stale": false
+  },
+  "python": "3.12.14",
+  "reviewed_parent": "c5094197f109bd7825652a1acd378000539e99c2",
+  "sequential_reference_model": {
+    "already_granted": 995,
+    "budget_exhausted": 1652,
+    "granted": 224,
+    "resource_unavailable": 193,
+    "stale_version": 1032
+  },
+  "source_sha256": {
+    "flight002/authority.py": "49420b5057532281e686fb806f42213e28b79b9c5bb111e7ff3eb79b7f56a400",
+    "flight002/throughput.py": "155a866df12f5b88f540eb4252e9b36504a001ff23b6519ad260f33dadfe3cee",
+    "model.py": "33275b5fc8c9cc4b35db3523e8cf205b00e30d276c3d811ea1836eb681e24115"
+  },
+  "speculative_split_charge_count_and_remaining": [
+    [
+      1,
+      15
+    ],
+    [
+      2,
+      14
+    ],
+    [
+      4,
+      12
+    ],
+    [
+      8,
+      8
+    ],
+    [
+      16,
+      0
+    ],
+    [
+      16,
+      0
+    ]
+  ],
+  "suite_passed": 29,
+  "supply_and_permits": {
+    "boundary": [
+      {
+        "births_this_tick": 32768,
+        "cumulative_births": 65535,
+        "demand_g": 3276750,
+        "minutes": 80,
+        "slack_g": 1523250,
+        "supply_cap_births": 96000,
+        "supply_g": 4800000,
+        "tick": 16
+      },
+      {
+        "births_this_tick": 65536,
+        "cumulative_births": 131071,
+        "demand_g": 6553550,
+        "minutes": 85,
+        "slack_g": -1453550,
+        "supply_cap_births": 102000,
+        "supply_g": 5100000,
+        "tick": 17
+      }
+    ],
+    "budgets_checked": 4097,
+    "first_cumulative_failure": 17,
+    "first_no_carry_failure": 14,
+    "max_new_buns_by_mass_at_tick_17_after_16_complete": 36465,
+    "prefixes_checked": 18
+  },
+  "throughput_api": {
+    "complete_scans": 60,
+    "grid_rows": 3420,
+    "invalid_empty_scan": {
+      "feed_rate_g_s": "ValueError",
+      "finite_permits": "ValueError",
+      "reserve_g": "ValueError"
+    }
+  },
+  "variant": "candidate"
+}

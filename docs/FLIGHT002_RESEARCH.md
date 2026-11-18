@@ -34,6 +34,12 @@ Therefore, n=17 (85 min) is the **first violated cumulative supply bound**, unde
 
 An external power source that creates matter from energy must still supply at least its rest-energy equivalent; 50 g corresponds to roughly \`4.4938e15 J\`. This is **not** necessarily delivered as heat. Energy conversion, transport and conservation mechanisms are separate unknowns.
 
+The 85-minute comparison allows unused delivery to carry over between ticks.
+If at most one 300-second delivery can be used for each tick, the 6,000-copy
+interval capacity first falls short at tick 14 (70 minutes, 8,192 new copies).
+With carry-over and 16 complete ticks, the tick-17 supply could support at most
+36,465 of that tick's 65,536 new copies, before placement or transfer losses.
+
 ## 3. Work on the remaining two Medium findings
 
 ### M1 — Interrupt between field updates
@@ -57,6 +63,31 @@ Performance caveat: the entire frozenset is copied per grant, which is expensive
 - A finite permit bank could fit what is shown in a finite scene and still fail to prove how the gadget behaves later.
 - Unrestricted magic might move matter spacelike or construct additional space; flat Minkowski bounds cannot exclude those fictional mechanisms.
 - Contact-only placement of same-size spheres yields a 65-minute bound only if each child of the original must stay touching that original and prior positions do not change. The 3D kissing number is 12, a mathematical result; it is not a universal limit on Baibain.
+
+### Flight 003 correction to the historical geometry comparison
+
+Under Flight 001 §8, every parent and previously born child stays fixed. Equal
+spheres of radius *r* have center separation at least *2r*. The one-diameter
+upper bound on each birth step therefore forces contact. These assumptions
+already imply the original parent's 12-neighbor bound in §10. A requirement
+only on the original parent's children constrains fewer births.
+
+The whole population also gives an earlier obstruction. After 12 ticks,
+794 objects have at most four parent-to-child steps in their ancestry. All 794
+closed balls fit inside radius *9r* if the proposed placement exists. That
+ball holds at most 729 bun volumes. Consequently exact doubling under §8
+must fail by 60 minutes. Whether a full placement exists at every earlier
+tick is open here. The 65- and 75-minute calculations remain valid upper
+bounds. See the [independent review and its moving-parent counterexample](../reviews/ASTRA_6_2_FLIGHT003_REPORT.md).
+
+### Flight 003 amendment to the state interface
+
+The reviewer candidate returns detached dataclass records from the snapshot,
+grant and denial paths. Immutable ID-set contents can be shared. The
+authority retains at most *B* successful IDs, and callers retaining one
+snapshot for every grant can keep *B(B+1)/2* historical ID entries across
+those sets. The process-local authority counts grants. A parent, tick, or
+physical output identity would need a separate model.
 
 ## 5. Astra Flight 003 target
 Ask GPT-6.2 Astra to independently construct counterexamples rather than approve on faith. Primary attacks: (i) mid-commit interruption and request result ambiguity, (ii) replay after rollback/crash, (iii) denied-ID re-use semantics, (iv) exact n=17 throughput arithmetic and timing, (v) black-hole/causal/conservation premises in Flight 001, (vi) finite-permit incompatibility with indefinite exact doubling, and (vii) the scope and correct interpretation of the 65-minute kissing bound.
