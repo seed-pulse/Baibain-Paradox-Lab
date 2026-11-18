@@ -63,7 +63,8 @@ def first_impossible_cycle(*, finite_permits: int, reserve_g: int,
     _uint(max_cycle, "max_cycle")
     if max_cycle > 10000:
         raise ValueError("max_cycle exceeds model cap")
-    for n in range(1, max_cycle + 1):
+    # Evaluating the initial state also validates the inputs for a zero horizon.
+    for n in range(max_cycle + 1):
         if not snapshot_cycle(n, finite_permits=finite_permits,
                               reserve_g=reserve_g,
                               feed_rate_g_s=feed_rate_g_s)["necessary_conditions_hold"]:

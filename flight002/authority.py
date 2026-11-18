@@ -3,7 +3,7 @@
 This is NOT a physical actuator, transaction service, fault-tolerant storage,
 cryptographic token system, or distributed authorization protocol.
 """
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from threading import Lock
 
 
@@ -51,7 +51,8 @@ class BudgetAuthority:
 
     def snapshot(self) -> BudgetSnapshot:
         with self._guard:
-            return self._state
+            # Public records keep the immutable ID set and own their field storage.
+            return replace(self._state)
 
     def _build_successor(self, old: BudgetSnapshot, request_id: str) -> BudgetSnapshot:
         """Overrideable only for deterministic fault-injection tests."""
@@ -77,16 +78,16 @@ class BudgetAuthority:
         with self._guard:
             before = self._state
             if request_id in before.approved_ids:
-                return Decision(False, "already_granted", before)
+                return Decision(False, "already_granted", replace(before))
             if before.version != expected_version:
-                return Decision(False, "stale_version", before)
+                return Decision(False, "stale_version", replace(before))
             if before.remaining == 0:
-                return Decision(False, "budget_exhausted", before)
+                return Decision(False, "budget_exhausted", replace(before))
             if not (feedstock_ok and space_ok and cooling_ok):
                 # Only successful IDs need retention for a no-double-GRANT
                 # guarantee. Denials are not guaranteed to stay denied.
-                return Decision(False, "resource_unavailable", before)
+                return Decision(False, "resource_unavailable", replace(before))
             candidate = self._build_successor(before, request_id)
             # One in-memory publication rather than partial counter mutation.
             self._state = candidate
-            return Decision(True, "granted", candidate)
+            return Decision(True, "granted", replace(candidate))
